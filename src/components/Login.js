@@ -36,6 +36,9 @@ const Login = () => {
     setMessage(message);
 
     //Authentication
+    if(message === null){
+      
+    }
 
   }
 
