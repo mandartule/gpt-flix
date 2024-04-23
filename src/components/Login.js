@@ -2,20 +2,9 @@ import React from 'react'
 import Header from './Header'
 import { useState, useRef } from 'react'
 import validate from '../utils/validate'
-import background from '../utils/Images/background.png'
 import backgroundBlur from '../utils/Images/backgroundBlur.jpg'
 
 const Login = () => {
-
-  const [bg, setBg] = useState(background);
-
-  const handleFocus = () => {
-    setTimeout(() => {
-      setBg(backgroundBlur);
-    }, 10); // delay of 1 second
-  };
-
-  
 
   const toggleForm = () => {
     setSignIn(!signIn)
@@ -35,9 +24,12 @@ const Login = () => {
     const message = validate(email.current.value, password.current.value);
     setMessage(message);
 
+    if(!message) return;
+
     //Authentication
-    if(message === null){
-      
+    if(!signIn){
+      //Sign Up
+      console.log('Sign Up');
     }
 
   }
@@ -52,9 +44,9 @@ const Login = () => {
 
         {!signIn && (<input className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='text' placeholder='Name'></input>)}
 
-        <input  onClick={handleFocus}  ref={email} className='bg-indigo-300 text-black my-2  p-4 w-full rounded-sm placeholder-gray-600' type='email' placeholder='Email'></input>
+        <input   ref={email} className='bg-indigo-300 text-black my-2  p-4 w-full rounded-sm placeholder-gray-600' type='email' placeholder='Email'></input>
 
-        <input onMouseEnter={handleFocus}  ref={password} className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='password' placeholder='Password'></input>
+        <input  ref={password} className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='password' placeholder='Password'></input>
 
 
         {message !== null ? (
