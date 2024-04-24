@@ -3,6 +3,9 @@ import Header from './Header'
 import { useState, useRef } from 'react'
 import validate from '../utils/validate'
 import backgroundBlur from '../utils/Images/backgroundBlur.jpg'
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from '../utils/firebase.js'
+
 
 const Login = () => {
 
@@ -24,12 +27,38 @@ const Login = () => {
     const message = validate(email.current.value, password.current.value);
     setMessage(message);
 
-    if(!message) return;
+    if (message) return;
 
     //Authentication
-    if(!signIn){
+    if (!signIn) {
+
       //Sign Up
-      console.log('Sign Up');
+
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          console.log(user)
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setMessage(errorMessage)
+        });
+    } else {
+
+      //Sign In
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setMessage(errorMessage)
+        });
     }
 
   }
@@ -44,9 +73,9 @@ const Login = () => {
 
         {!signIn && (<input className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='text' placeholder='Name'></input>)}
 
-        <input   ref={email} className='bg-indigo-300 text-black my-2  p-4 w-full rounded-sm placeholder-gray-600' type='email' placeholder='Email'></input>
+        <input ref={email} className='bg-indigo-300 text-black my-2  p-4 w-full rounded-sm placeholder-gray-600' type='email' placeholder='Email'></input>
 
-        <input  ref={password} className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='password' placeholder='Password'></input>
+        <input ref={password} className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='password' placeholder='Password'></input>
 
 
         {message !== null ? (
@@ -68,8 +97,8 @@ const Login = () => {
         </h4>
       </form>
 
-      
-      <img  src={backgroundBlur} alt='login background'></img>
+
+      <img src={backgroundBlur} alt='login background'></img>
     </div>
   )
 }
