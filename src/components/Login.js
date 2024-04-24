@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from './Header'
-import { useState, useRef} from 'react'
+import { useState, useRef } from 'react'
 import validate from '../utils/validate'
 import backgroundBlur from '../utils/Images/temp.jpg'
-import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase.js'
 import { useNavigate } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { addUser } from '../utils/userSlice.js'
 
 
 const Login = () => {
@@ -21,9 +22,13 @@ const Login = () => {
   //hook should always be at the top of component
   const email = useRef(null);
   const password = useRef(null);
+  const name = useRef(null);
 
   //navigate hook
   const navigate = useNavigate()
+
+  //dispatch function to update display name
+  const dispatch = useDispatch()
 
   const handleButtonClick = () => {
 
@@ -40,19 +45,43 @@ const Login = () => {
       //Sign Up
 
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-        
-      .then((userCredential) => {
+
+        .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
+          //updating profile with name and photo
+            updateProfile(user, {
+             displayName: name.current.value,
+             photoURL: "https://example.com/jane-q-user/profile.jpg"
+            })
+            .then(() => {
+               //update the store
+              //here we are taking the updated user details from the auth object and updating the store
+              const {uid,email,displayName,photoURL} = auth.currentUser;
+              
+              dispatch(addUser({
+                uid:uid,
+                email:email,
+                displayName:displayName,
+                photoURL:photoURL
+              }))
+ 
+              navigate("/browse")
+
+            }).catch((error) => {
+              setMessage(error.message)
+            });
+
           
+
           console.log(user)
           //navigate to browse page
           navigate("/browse")
-          
-          
+
+
         })
         .catch((error) => {
-          
+
           const errorMessage = error.message;
           setMessage(errorMessage)
         });
@@ -63,13 +92,13 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          
+
           console.log(user);
           //navigate to browse page
           navigate("/browse")
         })
         .catch((error) => {
-          
+
           const errorMessage = error.message;
           setMessage(errorMessage)
         });
@@ -85,7 +114,7 @@ const Login = () => {
       <form onSubmit={(e) => { e.preventDefault() }} className=' text-left w-full md:w-3/12 absolute p-12 bg-black my-44 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80'>
         <h1 className='text-3xl font-bold text-white  mb-8'>{signIn ? 'Sign In' : 'Sign Up'}</h1>
 
-        {!signIn && (<input className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='text' placeholder='Name'></input>)}
+        {!signIn && (<input ref={name} className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='text' placeholder='Name'></input>)}
 
         <input ref={email} className='bg-indigo-300 text-black my-2  p-4 w-full rounded-sm placeholder-gray-600' type='email' placeholder='Email'></input>
 
