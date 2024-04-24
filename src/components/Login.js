@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from './Header'
-import { useState, useRef } from 'react'
+import { useState, useRef} from 'react'
 import validate from '../utils/validate'
 import backgroundBlur from '../utils/Images/backgroundBlur.jpg'
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from '../utils/firebase.js'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Login = () => {
@@ -19,6 +21,9 @@ const Login = () => {
   //hook should always be at the top of component
   const email = useRef(null);
   const password = useRef(null);
+
+  //navigate hook
+  const navigate = useNavigate()
 
   const handleButtonClick = () => {
 
@@ -35,13 +40,19 @@ const Login = () => {
       //Sign Up
 
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-        .then((userCredential) => {
+        
+      .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
+          
           console.log(user)
+          //navigate to browse page
+          navigate("/browse")
+          
+          
         })
         .catch((error) => {
-          const errorCode = error.code;
+          
           const errorMessage = error.message;
           setMessage(errorMessage)
         });
@@ -52,10 +63,13 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+          
           console.log(user);
+          //navigate to browse page
+          navigate("/browse")
         })
         .catch((error) => {
-          const errorCode = error.code;
+          
           const errorMessage = error.message;
           setMessage(errorMessage)
         });
