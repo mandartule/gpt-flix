@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import { useState, useRef} from 'react'
 import validate from '../utils/validate'
-import backgroundBlur from '../utils/Images/backgroundBlur.jpg'
+import backgroundBlur from '../utils/Images/temp.jpg'
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from '../utils/firebase.js'
 import { useNavigate } from 'react-router-dom'
