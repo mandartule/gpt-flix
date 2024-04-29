@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '../utils/Images/logo.png'
 import userLogo from "../utils/Images/userLogo.png"
 import { useNavigate } from 'react-router-dom'
-import { signOut } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
 import {auth} from '../utils/firebase.js'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser, removeUser } from '../utils/userSlice.js'
 
 
 const Header = () => {
@@ -17,13 +18,38 @@ const Header = () => {
 
     signOut(auth)
       .then(() =>{
-        navigate("/");
+       
       })
       .catch((err) =>{
         navigate("/error")
       })
     
   }
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+
+    const unsubscribe =  onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({
+          uid: uid,
+          email: email,
+          displayName: displayName,
+          photoURL: "",
+        }))
+
+        navigate("/browse")
+      } else {
+        dispatch(removeUser())
+        navigate("/") 
+      }
+
+    })
+
+    return () => unsubscribe();
+    
+  }, [])
 
   return (
     <div className='absolute bg-gradient-to-b from-black  w-full flex justify-between'>

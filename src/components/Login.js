@@ -5,7 +5,6 @@ import validate from '../utils/validate'
 import backgroundBlur from '../utils/Images/temp.jpg'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase.js'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice.js'
 
@@ -24,8 +23,7 @@ const Login = () => {
   const password = useRef(null);
   const name = useRef(null);
 
-  //navigate hook
-  const navigate = useNavigate()
+  
 
   //dispatch function to update display name
   const dispatch = useDispatch()
@@ -66,19 +64,11 @@ const Login = () => {
                 photoURL:photoURL
               }))
  
-              navigate("/browse")
+              
 
             }).catch((error) => {
               setMessage(error.message)
             });
-
-          
-
-          console.log(user)
-          //navigate to browse page
-          navigate("/browse")
-
-
         })
         .catch((error) => {
 
@@ -92,10 +82,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-
-          console.log(user);
-          //navigate to browse page
-          navigate("/browse")
         })
         .catch((error) => {
 
