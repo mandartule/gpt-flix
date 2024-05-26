@@ -17,7 +17,7 @@ const VideoBackground = ({ movieId }) => {
       className='w-screen aspect-video'
        id="ytplayer"
       type="text/html"
-      src={"https://www.youtube.com/embed/" + trailerVideo?.key + "?autoplay=1&controls=0&mute=1&disablekb=1"}
+      src={"https://www.youtube.com/embed/" + trailerVideo?.key + "?autoplay=1&controls=0&mute=1&disablekb=1&cc_load_policy=1"}
       />
 
     </div>
