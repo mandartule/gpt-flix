@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTrailerVideo } from '../utils/moviesSlice';
 import { API_OPTIONS } from '../utils/constants';
 
-const useMovieTrailer = (movieId) => {
+const useMovieTrailer = (movieId,title) => {
     
     const dispatch = useDispatch();
     
@@ -24,7 +24,7 @@ const useMovieTrailer = (movieId) => {
 
     useEffect(() => {
         getMovieVideo();
-    }, []);
+    }, [title]);
 
 }
 
