@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 
 
-const nowPlayingMovies = () => {
+const useNowPlayingMovies = () => {
 
     const dispatch = useDispatch();
 
@@ -12,7 +12,7 @@ const nowPlayingMovies = () => {
         const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', API_OPTIONS);
         const json = await data.json();
 
-        console.log(json.results);
+        //console.log(json.results);
         dispatch(addPlayingMovies(json.results))
     }
 
@@ -22,4 +22,4 @@ const nowPlayingMovies = () => {
 
 }
 
-export default nowPlayingMovies;
+export default useNowPlayingMovies;
