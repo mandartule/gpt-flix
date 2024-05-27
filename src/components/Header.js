@@ -55,12 +55,12 @@ const Header = () => {
     <div className='absolute z-50 bg-gradient-to-b from-black  w-full flex justify-between'>
 
       {user ? (
-        <div className=' w-28  ml-16 mt-6 '>
-          <img className='' src={logo} alt='Netflix Logo'></img>
+        <div className=' w-24  ml-8 mt-6 '>
+          <img className='' src={logo} alt='Gptflix Logo'></img>
         </div>
       ) : (
-        <div className=' w-28  ml-16 mt-6 bg-gradient-to-t from-black '>
-        <img className='' src={logo} alt='Netflix Logo'></img>
+        <div className=' w-24  ml-8 mt-6 bg-gradient-to-t from-black '>
+        <img className='' src={logo} alt='Gptflix Logo'></img>
       </div>
       )}
 

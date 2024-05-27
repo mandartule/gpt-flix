@@ -12,7 +12,7 @@ const MainContainer = () => {
 
   const random = Math.floor(Math.random() * 20);
 
-  const MainMovie = movies[random];
+  const MainMovie = movies[8];
 
   const titleOriginal = MainMovie.original_title;
   const overview = MainMovie.overview;
