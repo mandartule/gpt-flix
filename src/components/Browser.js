@@ -6,6 +6,9 @@ import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 import usePopularMovies from '../hooks/usePopularMovies';
 import useTopRatedMovies from '../hooks/useTopRatedMovies';
 import useUpCommingMovies from '../hooks/useUpCommingMovies';
+import GptSearch from './GptSearch';
+import { useSelector } from 'react-redux';
+
 
 
 const Browser = () => {
@@ -15,13 +18,22 @@ const Browser = () => {
   useTopRatedMovies();
   useUpCommingMovies();
 
+  //subscribing to the store for the GptSearch Toggle
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch );
+
 
   return (
-
     <div className=''>
+    
       <Header />
-      <MainContainer/>
-      <SecondaryContainer/>
+      {
+        showGptSearch ? <GptSearch/> : (
+          <>
+            <MainContainer/>
+            <SecondaryContainer/>
+          </>
+        )
+      }
 
       {/* 
        
