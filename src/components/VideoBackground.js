@@ -20,6 +20,8 @@ const VideoBackground = ({ movieId , title }) => {
       src={"https://www.youtube.com/embed/" + trailerVideo?.key + "?autoplay=1&controls=0&mute=1&disablekb=1&cc_load_policy=1&vq=hd1080"}
       />
 
+      {console.log(trailerVideo?.key)}
+
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import { useState, useRef } from 'react'
 import validate from '../utils/validate'
-import backgroundBlur from '../utils/Images/temp.jpg'
+import backgroundBlur from '../utils/Images/backgroundBlur.jpg'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase.js'
 import { useDispatch } from 'react-redux'
