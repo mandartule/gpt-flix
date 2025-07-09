@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# 🎬 GPTFlix
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+GPTFlix is an AI-powered movie recommendation app that uses OpenAI's GPT to provide natural language-based movie suggestions. Ask it for thrillers from the 90s, family-friendly comedies, or movies like your favorites—GPTFlix gets it.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📸 Screenshots
 
-### `npm start`
+![Screenshot 2025-07-09 192659](https://github.com/user-attachments/assets/e382aeb4-f425-4f15-bf8a-6a4b67542f7b)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Screenshot 2025-07-09 192736](https://github.com/user-attachments/assets/ce69b268-c1a0-4f17-9bdf-7de033f652c6)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Screenshot 2025-07-09 192827](https://github.com/user-attachments/assets/3a812dbb-ae52-45b4-a005-ee9f5c07b316)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Features
 
-### `npm run build`
+- 🔍 Movie recommendations via natural language
+- 🎞️ Search by genre, mood, theme, or similar titles
+- 💬 Chat-based user interface
+- 🧠 Summarized movie info with smart filters
+- 📱 Responsive and modern design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Category      | Tech Used            |
+|---------------|----------------------|
+| **Frontend**  | React, Tailwind CSS  |
+| **Backend**   | Node.js, Express     |
+| **AI**        | OpenAI GPT-4 API     |
+| **Others**    | Vite, Axios, dotenv  |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧪 Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/GPTFlix.git
+cd GPTFlix
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Install dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Add your OpenAI API key to a .env file
+echo "VITE_OPENAI_API_KEY=your-api-key" > .env
 
-## Learn More
+# Start the dev server
+npm run dev
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📌 Project Structure
+plaintext
+Copy
+Edit
+GPTFlix/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   └── App.jsx
+├── .env
+├── vite.config.js
+└── package.json
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ✅ To-Do
+ - User accounts and login system
 
-### Code Splitting
+ - Save favorite movies and chat history
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ - More detailed filters and UI animations
 
-### Analyzing the Bundle Size
+ - Dark mode support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🙌 Acknowledgements
+- OpenAI
 
-### Making a Progressive Web App
+- TMDB for movie data (if used)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Developer community for open-source tools and APIs
 
-### Advanced Configuration
+  APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 License
+This project is open source under the MIT License.
 
-### Deployment
+vbnet
+Copy
+Edit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Let me know if you want to add badges, deployment info (e.g., Netlify/Vercel), or a hosted demo link
