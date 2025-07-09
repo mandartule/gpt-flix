@@ -1,0 +1,147 @@
+[debug] [2025-06-17T10:26:41.308Z] ----------------------------------------------------------------------
+[debug] [2025-06-17T10:26:41.311Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\91749\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-06-17T10:26:41.312Z] CLI Version:   13.8.0
+[debug] [2025-06-17T10:26:41.312Z] Platform:      win32
+[debug] [2025-06-17T10:26:41.312Z] Node Version:  v20.11.0
+[debug] [2025-06-17T10:26:41.312Z] Time:          Tue Jun 17 2025 15:56:41 GMT+0530 (India Standard Time)
+[debug] [2025-06-17T10:26:41.312Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-17T10:26:41.315Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-06-17T10:26:41.447Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-17T10:26:41.448Z] > authorizing via signed-in user (mandartule5@gmail.com)
+[debug] [2025-06-17T10:26:41.449Z] [iam] checking project gptflix-0 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-06-17T10:26:41.450Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:26:41.452Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:26:41.452Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:26:41.633Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:26:41.634Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:26:41.634Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions [none]
+[debug] [2025-06-17T10:26:41.634Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions x-goog-quota-user=projects/gptflix-0
+[debug] [2025-06-17T10:26:41.635Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-06-17T10:26:42.139Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-06-17T10:26:42.139Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-06-17T10:26:43.063Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions 401
+[debug] [2025-06-17T10:26:43.063Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2025-06-17T10:26:43.065Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2025-06-17T10:26:43.066Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:26:43.067Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:26:43.067Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:26:43.168Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:26:43.169Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:26:43.170Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 [none]
+[debug] [2025-06-17T10:26:43.525Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 401
+[debug] [2025-06-17T10:26:43.525Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2025-06-17T10:26:43.526Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
+[debug] [2025-06-17T10:28:01.452Z] ----------------------------------------------------------------------
+[debug] [2025-06-17T10:28:01.454Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\91749\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-06-17T10:28:01.455Z] CLI Version:   14.7.0
+[debug] [2025-06-17T10:28:01.455Z] Platform:      win32
+[debug] [2025-06-17T10:28:01.455Z] Node Version:  v20.11.0
+[debug] [2025-06-17T10:28:01.455Z] Time:          Tue Jun 17 2025 15:58:01 GMT+0530 (India Standard Time)
+[debug] [2025-06-17T10:28:01.455Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-17T10:28:01.679Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-17T10:28:01.680Z] > authorizing via signed-in user (mandartule5@gmail.com)
+[debug] [2025-06-17T10:28:01.680Z] [iam] checking project gptflix-0 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-06-17T10:28:01.681Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:01.681Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:01.682Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:28:01.683Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:28:01.683Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:02.020Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:28:02.020Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:02.020Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions [none]
+[debug] [2025-06-17T10:28:02.021Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions x-goog-quota-user=projects/gptflix-0
+[debug] [2025-06-17T10:28:02.021Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-06-17T10:28:03.447Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions 401
+[debug] [2025-06-17T10:28:03.447Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"service":"cloudresourcemanager.googleapis.com","method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions"}}]}}
+[debug] [2025-06-17T10:28:03.448Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-06-17T10:28:03.448Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:03.448Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:03.448Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:28:03.449Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:28:03.449Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:03.553Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:28:03.553Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:03.555Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/gptflix-0:testIamPermissions had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2025-06-17T10:28:03.556Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:03.556Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:03.556Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:28:03.557Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:28:03.557Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:03.665Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:28:03.666Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:03.667Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 [none]
+[debug] [2025-06-17T10:28:04.014Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 401
+[debug] [2025-06-17T10:28:04.015Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2025-06-17T10:28:04.015Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-06-17T10:28:04.015Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:04.015Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:28:04.015Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:28:04.016Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:28:04.016Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:04.120Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:28:04.120Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:28:04.121Z] Request to https://firebase.googleapis.com/v1beta1/projects/gptflix-0 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
+[debug] [2025-06-17T10:29:12.954Z] ----------------------------------------------------------------------
+[debug] [2025-06-17T10:29:12.960Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\91749\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2025-06-17T10:29:12.960Z] CLI Version:   14.7.0
+[debug] [2025-06-17T10:29:12.961Z] Platform:      win32
+[debug] [2025-06-17T10:29:12.961Z] Node Version:  v20.11.0
+[debug] [2025-06-17T10:29:12.961Z] Time:          Tue Jun 17 2025 15:59:12 GMT+0530 (India Standard Time)
+[debug] [2025-06-17T10:29:12.962Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-17T10:29:13.207Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-17T10:29:13.208Z] > authorizing via signed-in user (mandartule5@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Coding\gpt-flix
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-06-17T10:29:16.104Z] Using project from CLI flag: gptflix-0
+[debug] [2025-06-17T10:29:16.106Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:29:16.107Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:29:16.107Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:29:16.109Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:29:16.109Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:29:16.338Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:29:16.338Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:29:16.339Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 [none]
+[debug] [2025-06-17T10:29:16.716Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 401
+[debug] [2025-06-17T10:29:16.717Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gptflix-0 {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2025-06-17T10:29:16.717Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-06-17T10:29:16.717Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:29:16.717Z] Checked if tokens are valid: false, expires at: 1719248271973
+[debug] [2025-06-17T10:29:16.717Z] > refreshing access token with scopes: []
+[debug] [2025-06-17T10:29:16.718Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-06-17T10:29:16.718Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:29:16.816Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-06-17T10:29:16.816Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-06-17T10:29:16.818Z] Request to https://firebase.googleapis.com/v1beta1/projects/gptflix-0 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2025-06-17T10:29:17.068Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/gptflix-0 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (C:\Users\91749\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:52:12)
+    at RetryOperation._fn (C:\Users\91749\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project gptflix-0. Please make sure the project exists and your account has permission to access it.
