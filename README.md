@@ -1,6 +1,5 @@
 # 🎬 GPTFlix  
-## 👉 [Live Demo](https://gptflix-0.web.app/browse)
-
+## 👉 [Live Demo](https://gptflix-0.web.app)
 GPTFlix is an AI-powered movie recommendation app that uses OpenAI's GPT to provide natural language-based movie suggestions. Ask it for thrillers from the 90s, family-friendly comedies, or movies like your favorites—GPTFlix gets it.
 
 
