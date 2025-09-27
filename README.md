@@ -4,11 +4,15 @@ GPTFlix is an AI-powered movie recommendation app that uses OpenAI's GPT to prov
 
 ---
 
-## 📸 Screenshots
-
+### Login Page
 ![Screenshot 2025-07-09 192659](https://github.com/user-attachments/assets/e382aeb4-f425-4f15-bf8a-6a4b67542f7b)
 
+### DashBoard
+
 ![Screenshot 2025-07-09 192736](https://github.com/user-attachments/assets/ce69b268-c1a0-4f17-9bdf-7de033f652c6)
+
+
+### Movies
 
 ![Screenshot 2025-07-09 192827](https://github.com/user-attachments/assets/3a812dbb-ae52-45b4-a005-ee9f5c07b316)
 
