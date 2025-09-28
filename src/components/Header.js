@@ -11,9 +11,29 @@ import { toggleGptSearchView } from '../utils/gptSlice.js'
 
 const Header = () => {
 
+
+
   const navigate = useNavigate();
 
+  const dispatch = useDispatch()
+
   const user = useSelector((store) => store.user)
+
+
+  // Logo click handler
+  const handleLogoClick = () => {
+    if (user) {
+      // If user is logged in, go to browse page and reset GPT search
+      if (showGptSearch) {
+        dispatch(toggleGptSearchView()); // Turn off GPT search if it's on
+      }
+      navigate("/browse");
+    } else {
+      // If user is not logged in, go to login page
+      navigate("/");
+    }
+  };
+
 
   const handleSignOut = () => {
 
@@ -27,7 +47,7 @@ const Header = () => {
 
   }
 
-  const dispatch = useDispatch()
+
   useEffect(() => {
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -60,19 +80,19 @@ const Header = () => {
   }
 
   //subscribing to the store
-   const showGptSearch = useSelector((store) => store.gpt.showGptSearch );
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   //console.log(showGptSearch);
-  
+
 
   return (
     <div className='absolute z-50 bg-gradient-to-b from-black  w-full flex justify-between'>
 
       {user ? (
-        <div className=' w-24  ml-8 mt-6 '>
+        <div className='w-24 ml-8 mt-6 cursor-pointer' onClick={handleLogoClick}>
           <img className='' src={logo} alt='Gptflix Logo'></img>
         </div>
       ) : (
-        <div className=' w-24  ml-8 mt-6 bg-gradient-to-t from-black '>
+        <div className=' w-24  ml-8 mt-6 bg-gradient-to-t from-black ' onClick={handleLogoClick} >
           <img className='' src={logo} alt='Gptflix Logo'></img>
         </div>
       )}
@@ -81,8 +101,8 @@ const Header = () => {
       {user && <div className='p-4 m-2 flex justify-between items-start'>
 
         <button onClick={handleGptSearch} className="inline-flex mt-4 mr-12 h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-bold text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          
-         {showGptSearch ? "Home Page" : "GPT Search"}
+
+          {showGptSearch ? "Home Page" : "GPT Search"}
         </button>
 
 

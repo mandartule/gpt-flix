@@ -23,7 +23,7 @@ const Login = () => {
   const password = useRef(null);
   const name = useRef(null);
 
-  
+
 
   //dispatch function to update display name
   const dispatch = useDispatch()
@@ -48,23 +48,23 @@ const Login = () => {
           // Signed up 
           const user = userCredential.user;
           //updating profile with name and photo
-            updateProfile(user, {
-             displayName: name.current.value,
-             photoURL: "https://example.com/jane-q-user/profile.jpg"
-            })
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg"
+          })
             .then(() => {
-               //update the store
+              //update the store
               //here we are taking the updated user details from the auth object and updating the store
-              const {uid,email,displayName,photoURL} = auth.currentUser;
-              
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+
               dispatch(addUser({
-                uid:uid,
-                email:email,
-                displayName:displayName,
-                photoURL:photoURL
+                uid: uid,
+                email: email,
+                displayName: displayName,
+                photoURL: photoURL
               }))
- 
-              
+
+
 
             }).catch((error) => {
               setMessage(error.message)
@@ -99,6 +99,18 @@ const Login = () => {
 
       <form onSubmit={(e) => { e.preventDefault() }} className=' text-left w-full md:w-3/12 absolute p-12 bg-black my-44 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80'>
         <h1 className='text-3xl font-bold text-white  mb-8'>{signIn ? 'Sign In' : 'Sign Up'}</h1>
+
+
+        {signIn && (
+          <p className="text-gray-400 mb-4">
+            Use the following credentials to log in:
+            <br />
+            <strong>Email:</strong> test@gmail.com
+            <br />
+            <strong>Password:</strong> Test@123
+          </p>
+        )}
+
 
         {!signIn && (<input ref={name} className='bg-indigo-300 text-black my-2 p-4 w-full rounded-sm placeholder-gray-600' type='text' placeholder='Name'></input>)}
 
